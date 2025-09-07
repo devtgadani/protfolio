@@ -128,10 +128,13 @@ body {
 .loader-text {
     margin-top: 40px;
     font-family: 'Orbitron', monospace;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 4vw, 1.5rem);
     color: var(--accent-cyan);
     text-transform: uppercase;
-    letter-spacing: 5px;
+    letter-spacing: clamp(2px, 2vw, 5px);
+    text-align: center;
+    padding: 0 20px;
+    max-width: 90vw;
 }
 
 /* Navigation */

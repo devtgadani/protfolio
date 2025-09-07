@@ -5,15 +5,18 @@ function initThreeJS() {
     const canvas = document.getElementById('three-canvas');
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: false });
     renderer.setSize(window.innerWidth, window.innerHeight);
+    
+    // Reduce particles on mobile for better performance
+    const particleCount = window.innerWidth <= 768 ? 1000 : 5000;
     
     // Create particle system
     const geometry = new THREE.BufferGeometry();
     const vertices = [];
     const colors = [];
     
-    for (let i = 0; i < 5000; i++) {
+    for (let i = 0; i < particleCount; i++) {
         vertices.push(
             (Math.random() - 0.5) * 2000,
             (Math.random() - 0.5) * 2000,
@@ -110,22 +113,23 @@ if (window.innerWidth > 768) {
     }
 }
 
-// Loader Animation
+// Loader Animation - faster on mobile
 const loader = document.querySelector('.loader');
 const loaderText = document.querySelector('.loader-text');
+const loadTime = window.innerWidth <= 768 ? 2000 : 3000;
 
 setTimeout(() => {
     anime({
         targets: loader,
         opacity: 0,
-        duration: 1000,
+        duration: 800,
         easing: 'easeOutCubic',
         complete: () => {
             loader.style.display = 'none';
             initAnimations();
         }
     });
-}, 3000);
+}, loadTime);
 
 // Main Animation Timeline
 function initAnimations() {
@@ -168,28 +172,37 @@ function initAnimations() {
     initThreeJS();
 }
 
-// Improved scroll-triggered animations
-const observerOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -20px 0px'
-};
+// Scroll animations - disabled on mobile for performance
+const isMobile = window.innerWidth <= 768;
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // Add small delay for smoother animation
-            setTimeout(() => {
-                entry.target.classList.add('animate');
-            }, 50);
-            observer.unobserve(entry.target);
-        }
+if (isMobile) {
+    // On mobile, immediately show all elements without animation
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        el.classList.add('animate');
     });
-}, observerOptions);
+} else {
+    // Desktop scroll animations
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -20px 0px'
+    };
 
-// Observe all elements with animate-on-scroll class
-document.querySelectorAll('.animate-on-scroll').forEach(el => {
-    observer.observe(el);
-});
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('animate');
+                }, 50);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all elements with animate-on-scroll class
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        observer.observe(el);
+    });
+}
 
 // Simple hover effects without anime.js for better performance
 document.querySelectorAll('.contribution-card, .skill-category').forEach(card => {

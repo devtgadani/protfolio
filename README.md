@@ -21,7 +21,7 @@ A modern, interactive 3D portfolio website showcasing my work as a full-stack de
 
 ## Live Demo
 
-Visit the live site: [Dev Gadani Portfolio](https://your-username.github.io/portfolio)
+Visit the live site: [Dev Gadani Portfolio](https://devtgadani.github.io/protfolio)
 
 ## Local Development
 
@@ -31,8 +31,9 @@ Visit the live site: [Dev Gadani Portfolio](https://your-username.github.io/port
 
 ## Contact
 
-- Email: devgadani43@gmail.com
 - LinkedIn: [Dev Gadani](https://www.linkedin.com/in/dev-gadani-aba860258/)
+
+ 
 
 ---
 
