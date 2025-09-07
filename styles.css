@@ -243,10 +243,26 @@ body {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-size: 400% 400%;
-    animation: gradientShift 3s ease-in-out infinite;
     opacity: 0;
     transform: translateZ(-100px) rotateX(90deg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-title:hover {
+    background: linear-gradient(45deg, var(--accent-gold), var(--accent-orange), var(--accent-pink), var(--accent-cyan));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: smoothColorShift 2s ease-in-out ;
+    transform: translateZ(20px) scale(1.05);
+}
+
+@keyframes smoothColorShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 @keyframes gradientShift {
@@ -640,33 +656,34 @@ body {
 }
 
 .contact-me-btn {
-    background: linear-gradient(45deg, var(--accent-cyan), var(--accent-purple));
-    color: var(--text-primary);
-    border: none;
-    padding: 25px 60px;
-    border-radius: 50px;
-    font-size: 1.4rem;
-    font-weight: 700;
+    background: transparent;
+    color: var(--accent-cyan);
+    border: 2px solid var(--accent-cyan);
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
     cursor: pointer;
-    font-family: 'Orbitron', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 2px;
     text-decoration: none;
     display: inline-block;
 }
 
 .contact-me-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+    background: var(--accent-cyan);
+    color: var(--primary-dark);
+    transform: translateY(-2px);
 }
 
 .linkedin-btn {
-    background: linear-gradient(45deg, var(--accent-purple), var(--accent-pink)) !important;
+    color: var(--accent-purple);
+    border-color: var(--accent-purple);
 }
 
 .linkedin-btn:hover {
-    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.4) !important;
+    background: var(--accent-purple);
+    color: var(--primary-dark);
 }
 
 .form-group {

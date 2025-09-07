@@ -1,6 +1,35 @@
 // Three.js Background Scene
 let scene, camera, renderer, particles;
 
+// Create star texture
+function createStarTexture() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 32;
+    canvas.height = 32;
+    const ctx = canvas.getContext('2d');
+    
+    // Draw star shape
+    ctx.fillStyle = '#ffffff';
+    ctx.beginPath();
+    const centerX = 16, centerY = 16, spikes = 5, outerRadius = 12, innerRadius = 6;
+    
+    for (let i = 0; i < spikes * 2; i++) {
+        const radius = i % 2 === 0 ? outerRadius : innerRadius;
+        const angle = (i * Math.PI) / spikes;
+        const x = centerX + Math.cos(angle) * radius;
+        const y = centerY + Math.sin(angle) * radius;
+        
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+    }
+    
+    ctx.closePath();
+    ctx.fill();
+    
+    const texture = new THREE.CanvasTexture(canvas);
+    return texture;
+}
+
 function initThreeJS() {
     const canvas = document.getElementById('three-canvas');
     scene = new THREE.Scene();
@@ -32,11 +61,12 @@ function initThreeJS() {
     geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
     
     const material = new THREE.PointsMaterial({
-        size: 3,
+        size: 4,
         vertexColors: true,
         transparent: true,
         opacity: 0.8,
-        blending: THREE.AdditiveBlending
+        blending: THREE.AdditiveBlending,
+        map: createStarTexture()
     });
     
     particles = new THREE.Points(geometry, material);
