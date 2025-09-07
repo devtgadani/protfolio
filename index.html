@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Gadani Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Three.js Background -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress"></div>
+
+    <!-- Loader -->
+    <div class="loader">
+        <div class="loader-cube">
+            <div class="cube-face"></div>
+            <div class="cube-face"></div>
+            <div class="cube-face"></div>
+            <div class="cube-face"></div>
+            <div class="cube-face"></div>
+            <div class="cube-face"></div>
+        </div>
+        <div class="loader-text">We appreciate your visit. Preparing your immersive 3D Experience...</div>
+    </div>
+
+    <!-- Custom 3D Cursor -->
+    <div class="cursor">
+        <div class="cursor-inner">
+            <div class="cursor-dot"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">DEV GADANI</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#contributions">Contributions</a>
+                <!-- <a href="#projects">Projects</a> -->
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- <div class="floating-element element-1"></div>
+        <div class="floating-element element-2"></div>
+        <div class="floating-element element-3"></div> -->
+        
+        <div class="hero-content">
+            <!-- <div class="hero-subtitle">Full Stack Developer</div> -->
+            <h1 class="hero-title">DEV GADANI</h1>
+            <p class="hero-description">Passionate about 3D graphics and design. Building modern web and mobile applications with React, Next.js, and cutting-edge technologies. GSoC'25 contributor and open source enthusiast.</p>
+            <a href="#about" class="hero-cta">Explore My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="section-header">
+            <h2 class="section-title animate-on-scroll">About Me</h2>
+        </div>
+        <div class="about-container">
+            <!-- <div class="about-image-container animate-on-scroll">
+                <div class="about-image"></div>
+            </div> -->
+            <div class="about-content animate-on-scroll">
+                <p>I'm a <span class="highlight">passionate full stack developer</span> with a deep love for 3D graphics and modern design. Currently specializing in building scalable web and mobile applications using cutting-edge technologies.</p>
+                <p>My expertise spans <span class="highlight">React.js, Next.js, Spring Boot, Node.js, and AWS</span>. For mobile development, I work with React Native (Expo) and Flutter to create cross-platform solutions.</p>
+                <p>As an <span class="highlight">open source enthusiast</span> and GSoC'25 contributor</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="section-header">
+            <h2 class="section-title animate-on-scroll">Skills</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category animate-on-scroll">
+                <h3 class="category-title">Frontend</h3>
+                <div class="skill-items">
+                    <div class="skill-item">HTML5</div>
+                    <div class="skill-item">CSS3</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">React.js</div>
+                    <div class="skill-item">Next.js</div>
+                    <div class="skill-item">Three.js</div>
+                    <div class="skill-item">WebGL</div>
+                    <div class="skill-item">CSS3</div>
+                </div>
+            </div>
+            <div class="skill-category animate-on-scroll">
+                <h3 class="category-title">Backend & Cloud</h3>
+                <div class="skill-items">
+                    <div class="skill-item">Node.js</div>
+                    <div class="skill-item">Spring Boot</div>
+                    <div class="skill-item">AWS S3</div>
+                    <div class="skill-item">Socket.io</div>
+                    <div class="skill-item">REST APIs</div>
+                    <div class="skill-item">Databases</div>
+                </div>
+            </div>
+            <div class="skill-category animate-on-scroll">
+                <h3 class="category-title">Mobile & Design</h3>
+                <div class="skill-items">
+                    <div class="skill-item">React Native</div>
+                    <div class="skill-item">Expo</div>
+                    <div class="skill-item">Flutter</div>
+                    <div class="skill-item">3D Graphics</div>
+                    <div class="skill-item">UI/UX Design</div>
+                    <div class="skill-item">Open Source</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contributions Section -->
+    <section class="section contributions" id="contributions">
+        <div class="section-header">
+            <h2 class="section-title animate-on-scroll">My Contributions</h2>
+        </div>
+        <div class="contribution-grid">
+            <div class="contribution-card animate-on-scroll">
+                <div class="contribution-icon">🎮</div>
+                <h3 class="contribution-title">GSoC'25 - Liquid Galaxy</h3>
+                <p class="contribution-description">
+                    Contributed to Google Summer of Code 2025 by developing a mobile controller application for multi-screen gaming systems. 
+                    The project involved creating real-time communication between mobile devices and Liquid Galaxy screens using Socket.io, 
+                    enabling immersive gaming experiences across multiple displays.
+                </p>
+                <div class="contribution-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">GSoC'25</span>
+                        <span class="stat-label">Contributor</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Multi</span>
+                        <span class="stat-label">Screen</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Socket.io</span>
+                        <span class="stat-label">Real-time</span>
+                    </div>
+                </div>
+                <a href="https://github.com/LiquidGalaxyLAB/LG-Airport-Controller-Simulator/" class="contribution-link">
+                    <span>View Project</span>
+                    <span>→</span>
+                </a>
+            </div>
+            
+            <div class="contribution-card animate-on-scroll">
+                <div class="contribution-icon">📚</div>
+                <h3 class="contribution-title">LG Wiki Platform</h3>
+                <p class="contribution-description">
+                    Contributed to the development of LG Wiki, a comprehensive knowledge base platform 
+                    built with modern web technologies. Also worked on small cluster projects including 
+                    doctor prescription websites and construction-based order management systems with contact features.
+                </p>
+                <div class="contribution-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Articles</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1K+</span>
+                        <span class="stat-label">Users</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Live</span>
+                        <span class="stat-label">Status</span>
+                    </div>
+                </div>
+                <a href="https://www.liquidgalaxy.eu/2024/05/lg-wiki.html#content-wrapper" target="_blank" class="contribution-link">
+                    <span>Visit LG Wiki</span>
+                    <span>→</span>
+                </a>
+            </div>
+            
+            <div class="contribution-card animate-on-scroll">
+                <div class="contribution-icon">🏥</div>
+                <h3 class="contribution-title">Small Cluster Projects</h3>
+                <p class="contribution-description">
+                    Developed various small-scale web applications including a doctor prescription management system 
+                    and construction-based websites with order management and contact features. These projects 
+                    demonstrate practical application of full-stack development skills in real-world scenarios.
+                </p>
+                <!-- <div class="contribution-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">Doctor</span>
+                        <span class="stat-label">Prescription</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Construction</span>
+                        <span class="stat-label">Orders</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Contact</span>
+                        <span class="stat-label">Systems</span>
+                    </div>
+                </div>
+                <a href="#" class="contribution-link">
+                    <span>View Projects</span>
+                    <span>→</span>
+                </a> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <!-- <section class="section" id="projects">
+        <div class="section-header">
+            <h2 class="section-title animate-on-scroll">3D Projects</h2>
+        </div>
+        
+        <div class="project-item animate-on-scroll">
+            <div class="project-card">
+                <div class="project-image"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Immersive E-Commerce</h3>
+                    <p class="project-description">A revolutionary shopping experience featuring 3D product visualization, AR try-on capabilities, and smooth WebGL transitions that increase conversion rates by 300%.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Three.js</span>
+                        <span class="project-tag">WebXR</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Node.js</span>
+                    </div>
+                    <div class="project-skills">
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">WebGL</span>
+                        <span class="skill-badge">3D Modeling</span>
+                        <span class="skill-badge">UI/UX</span>
+                        <span class="skill-badge">Performance</span>
+                    </div>
+                    <a href="#" class="project-link">
+                        <span>Explore 3D Demo</span>
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-item animate-on-scroll">
+            <div class="project-card">
+                <div class="project-image"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Holographic Dashboard</h3>
+                    <p class="project-description">A futuristic data visualization platform with floating 3D charts, particle systems, and real-time analytics that transforms complex data into beautiful, interactive experiences.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">WebGL</span>
+                        <span class="project-tag">D3.js</span>
+                        <span class="project-tag">Shaders</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+                    <div class="project-skills">
+                        <span class="skill-badge">GLSL</span>
+                        <span class="skill-badge">Data Viz</span>
+                        <span class="skill-badge">Real-time</span>
+                        <span class="skill-badge">Analytics</span>
+                        <span class="skill-badge">Optimization</span>
+                    </div>
+                    <a href="#" class="project-link">
+                        <span>View Hologram</span>
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-item animate-on-scroll">
+            <div class="project-card">
+                <div class="project-image"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Virtual Art Gallery</h3>
+                    <p class="project-description">An immersive virtual gallery where users can walk through 3D spaces, interact with digital artwork, and experience art in ways never before possible on the web.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Three.js</span>
+                        <span class="project-tag">Physics</span>
+                        <span class="project-tag">VR/AR</span>
+                        <span class="project-tag">GSAP</span>
+                    </div>
+                    <div class="project-skills">
+                        <span class="skill-badge">Physics Engine</span>
+                        <span class="skill-badge">VR/AR</span>
+                        <span class="skill-badge">Animation</span>
+                        <span class="skill-badge">Interaction</span>
+                        <span class="skill-badge">Immersive</span>
+                    </div>
+                    <a href="#" class="project-link">
+                        <span>Enter Gallery</span>
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="section-header">
+            <h2 class="section-title animate-on-scroll">Connect</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info animate-on-scroll">
+                <h3>Let's Build Something Amazing</h3>
+                <p>Ready to collaborate on your next project? Whether it's a web application, mobile app, or open source contribution, let's create innovative solutions together using modern technologies.</p>
+            </div>
+            <!-- <form class="contact-form animate-on-scroll">
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Project Type" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-textarea" placeholder="Describe your project idea..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Launch Project</button>
+            </form> -->
+            
+            <div class="contact-button-container animate-on-scroll">
+                <a href="mailto:devgadani43@gmail.com" class="contact-me-btn"> Email</a>
+                <a href="https://www.linkedin.com/in/dev-gadani-aba860258/" class="contact-me-btn linkedin-btn"> LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p class="footer-text">&copy; 2024 Dev Gadani. Crafted with passion for technology.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
