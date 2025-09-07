@@ -386,8 +386,8 @@ body {
 
 /* Contact section smooth animations */
 .contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr; */
     gap: 100px;
     align-items: start;
     transform-style: preserve-3d;
@@ -606,8 +606,8 @@ body {
 }
 
 .contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr; */
     gap: 100px;
     align-items: start;
     transform-style: preserve-3d;
@@ -619,7 +619,7 @@ body {
 
 .contact-info h3 {
     font-family: 'Orbitron', monospace;
-    font-size: 3rem;
+    font-size:clamp(2rem, 6vw, 3rem) ;
     margin-bottom: 30px;
     background: linear-gradient(45deg, var(--accent-gold), var(--accent-orange));
     background-clip: text;
@@ -629,7 +629,7 @@ body {
 }
 
 .contact-info p {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     line-height: 1.7;
     margin-bottom: 40px;
     color: var(--text-secondary);
@@ -659,7 +659,7 @@ body {
     background: transparent;
     color: var(--accent-cyan);
     border: 2px solid var(--accent-cyan);
-    padding: 20px 40px;
+    padding: 15px 30px;
     border-radius: 10px;
     font-size: 1.2rem;
     font-weight: 600;
@@ -816,6 +816,10 @@ body {
     margin-top: 80px;
 }
 
+@media (max-width: 600px) {
+    .skills-grid { grid-template-columns: 1fr; }
+}
+
 .skill-category {
     background: var(--glass);
     border-radius: 20px;
@@ -874,6 +878,10 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 60px;
     margin-top: 80px;
+}
+
+@media (max-width: 600px) {
+    .contribution-grid { grid-template-columns: 1fr; gap: 30px; }
 }
 
 .contribution-card {
@@ -1014,155 +1022,52 @@ body {
     gap: 20px;
 }
 
-/* Mobile Responsiveness */
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .skills-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .contribution-grid { grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); }
+}
+
 @media (max-width: 1024px) {
-    .nav-links {
-        display: none;
-    }
-    
-    .mobile-menu {
-        display: flex;
-    }
-    
-    .contribution-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .contribution-card {
-        padding: 30px;
-    }
+    .nav-links { display: none; }
+    .mobile-menu { display: flex; }
+    .nav { padding: 20px 30px; }
+    .section { padding: 100px 30px; }
+    .skills-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contribution-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-container { grid-template-columns: 1fr; gap: 60px; }
 }
 
 @media (max-width: 768px) {
     body { cursor: auto; }
     .cursor { display: none !important; }
-    
     .nav { padding: 15px 20px; }
     .logo { font-size: 1.5rem; }
-    
-    .hero {
-        padding: 0 20px;
-        text-align: center;
-    }
-    
-    .hero-title { 
-        font-size: clamp(2.5rem, 8vw, 4rem);
-        line-height: 1;
-    }
-    
-    .hero-description { 
-        font-size: 1.1rem;
-        padding: 0;
-        margin-bottom: 40px;
-    }
-    
-    .section { 
-        padding: 60px 20px;
-        overflow-x: hidden;
-    }
-    
-    .about-container,
-    .contact-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .about-image-container {
-        height: 250px;
-    }
-    
-    .floating-element {
-        display: none;
-    }
-    
-    .section-title {
-        font-size: clamp(2rem, 6vw, 3rem);
-    }
-    
-    .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .project-card {
-        padding: 25px 15px;
-    }
-    
-    .project-title {
-        font-size: 1.6rem;
-    }
-    
-    .project-tags,
-    .project-skills {
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-    
-    .contact-form {
-        padding: 25px 15px;
-    }
-    
-    .contribution-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-    
-    .contribution-card {
-        padding: 20px 15px;
-    }
-    
-    .contribution-stats {
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-    
-    .stat-number {
-        font-size: 1.3rem;
-    }
+    .hero { padding: 0 20px; }
+    .hero-title { font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1; }
+    .hero-description { font-size: 1.1rem; margin-bottom: 40px; }
+    .section { padding: 60px 20px; }
+    .section-title { font-size: clamp(2rem, 6vw, 3rem); }
+    .skills-grid { gap: 30px; }
+    .skill-category { padding: 30px; }
+    .contribution-card { padding: 30px 20px; }
+    .contribution-title { font-size: 1.5rem; }
+    .contact-me-btn { padding: 15px 30px; font-size: 1rem; }
+    .floating-element { display: none; }
 }
 
 @media (max-width: 480px) {
-    .nav {
-        padding: 10px 15px;
-    }
-    
-    .logo {
-        font-size: 1.3rem;
-    }
-    
-    .hero-cta {
-        padding: 12px 25px;
-        font-size: 0.9rem;
-    }
-    
-    .section {
-        padding: 40px 15px;
-    }
-    
-    .project-item {
-        margin-bottom: 80px;
-    }
-    
-    .social-links {
-        gap: 15px;
-    }
-    
-    .social-link {
-        width: 50px;
-        height: 50px;
-        font-size: 1rem;
-    }
-    
-    .form-input,
-    .form-textarea {
-        padding: 15px;
-        font-size: 1rem;
-    }
-    
-    .submit-btn {
-        padding: 15px 30px;
-        font-size: 1rem;
-    }
+    .nav { padding: 10px 15px; }
+    .logo { font-size: 1.3rem; }
+    .hero-cta { padding: 12px 25px; font-size: 0.9rem; }
+    .section { padding: 40px 15px; }
+    .skill-category { padding: 20px; }
+    .contribution-card { padding: 20px 15px; }
+    .contribution-title { font-size: 1.3rem; }
+    .contribution-stats { gap: 10px; flex-wrap: wrap; }
+    .stat-number { font-size: 1.1rem; }
+    .contact-me-btn { padding: 12px 20px; font-size: 0.9rem; }
+    .social-link { width: 50px; height: 50px; font-size: 1rem; }
 }
 
 /* Scroll Progress */
